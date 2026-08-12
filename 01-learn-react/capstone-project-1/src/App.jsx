@@ -22,13 +22,22 @@ function App() {
   }
 
   function handleRoll(){
-    setDice(randomAllDice)
+    setDice(prevDice => prevDice.map((dice) => {
+      return dice.isHeld === false ? {...dice, value: Math.ceil(Math.random() * 6)} : dice
+    }
+    ))
+  }
+
+  function setHold(id){
+    setDice(prevDice => prevDice.map(die => {
+      return die.key === id ? {...die, isHeld: !die.isHeld} : die
+    }))
   }
 
   const diceElements = (
     
     dice.map((prevDice) => 
-      <Dice value={prevDice.value} key={prevDice.key}/>
+      <Dice value={prevDice.value} key={prevDice.key} isHeld={prevDice.isHeld} handleClick={() => setHold(prevDice.key)}/>
     )
   )
 
