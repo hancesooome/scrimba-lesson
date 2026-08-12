@@ -23,6 +23,9 @@ div#root {
 
 main {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 360px;
   width: 360px;
   background-color: #F5F5F5;
@@ -50,5 +53,16 @@ main {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   font-size: 1.3rem;
   font-weight: 600;
+  cursor: pointer;
+}
+
+.roll-btn {
+  border: none;
+  background-color: #5035FF;
+  color: white;
+  height: 45px;
+  width: 110px;
+  font-size: 1.3rem;
+  border-radius: 5px;
   cursor: pointer;
 }
